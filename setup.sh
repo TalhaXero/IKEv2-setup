@@ -306,9 +306,9 @@ echo
 
 # user + SSH
 
-id -u "${LOGINUSERNAME}" &>/dev/null || useradd --disabled-password --gecos "" "${LOGINUSERNAME}"
+id -u "${LOGINUSERNAME}" &>/dev/null || adduser --disabled-password --gecos "" "${LOGINUSERNAME}"
 echo "${LOGINUSERNAME}:${LOGINPASSWORD}" | chpasswd
-useradd "${LOGINUSERNAME}" sudo
+adduser "${LOGINUSERNAME}" sudo
 
 sed -r \
 -e "s/^#?Port 22$/Port ${SSHPORT}/" \
